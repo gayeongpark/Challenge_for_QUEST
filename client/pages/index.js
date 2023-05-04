@@ -10,16 +10,16 @@ export default function Home() {
   const [isImageClicked, setIsImageClicked] = useState(false);
 
   const handleImageClick = (isClicked) => {
+    // console.log(isClicked);
     setIsImageClicked(isClicked);
-    if (isClicked) {
-      setCategory('');
-    }
+    setCategory('');
+    setIsImageClicked(false);
   };
 
   return (
     <div className='bg-blue-900'>
       <Nav onImageClick={handleImageClick} />
-      {category && isImageClicked ? (
+      {category && !isImageClicked ? (
         <Chat category={category} />
       ) : (
         <Body setCategory={setCategory} />
